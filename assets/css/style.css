@@ -366,3 +366,27 @@ body {
     margin-right: 5px;
 }
 
+
+/* Skill Rating Styles */
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.skill-rating {
+    display: flex;
+    gap: 3px;
+}
+
+.skill-rating i {
+    font-size: 0.75rem;
+    color: #444; /* Empty star */
+}
+
+.skill-rating i.filled {
+    color: #ffb900; /* Microsoft Yellow/Gold */
+}
+
