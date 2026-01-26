@@ -45,18 +45,18 @@
         <div class="dashboard-container">
             
             <!-- Welcome / Hero Card -->
-            <div class="card" id="overview" style="grid-column: 1 / -1; border-left: 4px solid var(--accent-blue);">
+            <div class="card col-span-full border-left-accent" id="overview">
                 <div class="card-header">
                     <span class="card-title">Architect Profile: Jesús Ángel Señorán López</span>
                 </div>
-                <p style="color: var(--text-secondary); line-height: 1.6;">
+                <p class="text-body">
                     <strong>Azure Cloud Architect @ Avanade | Banking Sector Security</strong><br>
                     Orientado a entornos Cloud (Azure/AWS) y Cultura DevOps con IaC como base. Especialista en seguridad y gobierno (EPAC/Azure Policy).
                     <br><br>
                     <em>"Me adapto rápido a nuevos entornos... Implementar soluciones para proteger y recuperar el sistema ante situaciones imprevistas."</em>
                 </p>
-                <div class="tag-container" style="margin-top: 15px;">
-                    <span class="tag" style="background-color: var(--accent-blue); color: white;"><i class="fa-solid fa-clock-rotate-left"></i> 15+ Años Exp.</span>
+                <div class="tag-container mt-15">
+                    <span class="tag tag-accent"><i class="fa-solid fa-clock-rotate-left"></i> 15+ Años Exp.</span>
                     <span class="tag"><i class="fa-brands fa-microsoft"></i> Azure Expert</span>
                     <span class="tag"><i class="fa-solid fa-code"></i> IaC (Terraform/Bicep)</span>
                     <span class="tag"><i class="fa-solid fa-shield-halved"></i> Security Architect</span>
@@ -65,11 +65,11 @@
             </div>
 
             <!-- Security Score (KPI) -->
-            <div class="card" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="card flex-between-center">
                 <div>
                     <div class="card-title">Secure Score</div>
                     <div class="metric-label">Estado de Cumplimiento Global</div>
-                    <div style="margin-top: 10px; color: #57f257; font-size: 0.9rem;">
+                    <div class="kpi-success">
                         <i class="fa-solid fa-arrow-up"></i> +12% vs año anterior
                     </div>
                 </div>
@@ -81,12 +81,14 @@
             </div>
 
             <!-- TimeWrap / 2025 Year in Review (NEW) -->
-            <div class="card timewrap-card" id="epac-impact" style="grid-column: 1 / -1;">
+            <div class="card timewrap-card col-span-full" id="epac-impact">
                 <div class="timewrap-header">
                     <div>
-                        <span class="timewrap-badge">2025 Wrapped</span>
-                        <div style="font-size: 1.2rem; font-weight: bold; margin-top: 10px;">Azure Policy Guardrails - Year in Review</div>
-                        <div style="color: var(--text-secondary); font-size: 0.9rem;">Enterprise-Scale Cloud Governance Achievements</div>
+                        <span class="timewrap-badge">Extensión de Controles Corporativos</span>
+                        <div style="font-size: 1.2rem; font-weight: bold; margin-top: 10px;">Azure Policy Guardrails - Impacto y Posture</div>
+                        <div class="epac-desc">
+                            Reducción de la superficie de ataque mediante la extensión de controles corporativos, se ha extendido de 8 tipos de recursos a más de 200, aumentando considerablemente el Secure Posture.
+                        </div>
                     </div>
                     <div style="text-align: right;">
                         <i class="fa-solid fa-rocket fa-2x" style="color: var(--accent-blue); opacity: 0.8;"></i>
@@ -104,9 +106,9 @@
                     </div>
                     <!-- Column 2: Focus (was Commits) -->
                     <div class="stat-box">
-                        <div class="stat-number" style="color: #57f257;">85%</div>
-                        <div class="stat-label">New Features</div>
-                        <div style="font-size: 0.75rem; color: #888; margin-top:5px;">Focus on New Capabilities</div>
+                        <div class="stat-number" style="color: #57f257;">200+</div>
+                        <div class="stat-label">Tipos de Recursos</div>
+                        <div style="font-size: 0.75rem; color: #888; margin-top:5px;">Cobertura Expandida (vs 8 iniciales)</div>
                     </div>
                     <!-- Column 3: Peak Velocity -->
                     <div class="stat-box">
@@ -117,20 +119,44 @@
                 </div>
 
                 <!-- Detail Rows -->
-                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                 <div class="coverage-grid-container">
                     <div>
-                        <div style="color: white; font-weight: 600; margin-bottom: 10px;">🛡️ Service Coverage Top 5</div>
-                        <div class="milestone-list">
-                            <div class="milestone-item"><i class="fa-solid fa-cloud"></i> Global Platform (18)</div>
-                            <div class="milestone-item"><i class="fa-solid fa-network-wired"></i> Network Security (16)</div>
-                            <div class="milestone-item"><i class="fa-solid fa-building"></i> Foundation/Core (11)</div>
-                            <div class="milestone-item"><i class="fa-solid fa-server"></i> VMs & Compute (7)</div>
-                            <div class="milestone-item"><i class="fa-solid fa-key"></i> Key Vault & Storage (11)</div>
+                        <div style="color: white; font-weight: 600; margin-bottom: 10px;">🛡️ Cobertura Completa por Categoría (Top Coverage)</div>
+                        <div class="milestone-list milestone-scroll-container">
+                            <!-- Top Tier -->
+                            <div class="milestone-item milestone-item-spread">Tags <span class="badge-count primary">28</span></div>
+                            <div class="milestone-item milestone-item-spread">Network <span class="badge-count secondary">20</span></div>
+                            <div class="milestone-item milestone-item-spread">Data Ingestion <span class="badge-count secondary">11</span></div>
+                            <div class="milestone-item milestone-item-spread">Compute <span class="badge-count secondary">9</span></div>
+                            <div class="milestone-item milestone-item-spread">Subscriptions <span class="badge-count secondary">8</span></div>
+                            <div class="milestone-item milestone-item-spread">Key Vault <span class="badge-count secondary">7</span></div>
+                            <div class="milestone-item milestone-item-spread">Storage <span class="badge-count secondary">6</span></div>
+                            
+                            <!-- Mid Tier -->
+                            <div class="milestone-item milestone-item-spread">Azure Firewall <span class="badge-count secondary">5</span></div>
+                            <div class="milestone-item milestone-item-spread">Bastion <span class="badge-count secondary">5</span></div>
+                            <div class="milestone-item milestone-item-spread">Managed Identity <span class="badge-count secondary">5</span></div>
+                            <div class="milestone-item milestone-item-spread">Security Center <span class="badge-count secondary">5</span></div>
+                            <div class="milestone-item milestone-item-spread">API Management <span class="badge-count secondary">5</span></div>
+                            <div class="milestone-item milestone-item-spread">Lighthouse <span class="badge-count secondary">5</span></div>
+                            <div class="milestone-item milestone-item-spread">Authorization <span class="badge-count secondary">4</span></div>
+                            
+                            <!-- Low Tier -->
+                            <div class="milestone-item milestone-item-spread">App Service <span class="badge-count secondary">3</span></div>
+                            <div class="milestone-item milestone-item-spread">Event Hub <span class="badge-count secondary">3</span></div>
+                            <div class="milestone-item milestone-item-spread">HDInsight <span class="badge-count secondary">3</span></div>
+                            <div class="milestone-item milestone-item-spread">Databricks <span class="badge-count secondary">3</span></div>
+                            <div class="milestone-item milestone-item-spread">Kubernetes <span class="badge-count secondary">2</span></div>
+                            <div class="milestone-item milestone-item-spread">Logic Apps <span class="badge-count secondary">2</span></div>
+                            <div class="milestone-item milestone-item-spread">Data Lake <span class="badge-count secondary">2</span></div>
+                            <div class="milestone-item milestone-item-spread">Container Reg. <span class="badge-count secondary">2</span></div>
+                            <div class="milestone-item milestone-item-spread">Cache <span class="badge-count secondary">1</span></div>
+                            <div class="milestone-item milestone-item-spread">AI Services <span class="badge-count secondary">1</span></div>
                         </div>
                     </div>
                     <div>
                         <div style="color: white; font-weight: 600; margin-bottom: 10px;">💻 Tech Stack & Vision</div>
-                        <div class="tag-container" style="margin-bottom: 15px;">
+                        <div class="tag-container mt-15">
                             <span class="timeline-tag">EPAC</span>
                             <span class="timeline-tag">PowerShell</span>
                             <span class="timeline-tag">JSON/ARM</span>
@@ -148,13 +174,13 @@
             </div>
 
             <!-- AI Innovation & Future Tech (NEW) -->
-            <div class="card ai-tech-card" id="ai-strategy" style="grid-column: 1 / -1;">
+            <div class="card ai-tech-card col-span-full" id="ai-strategy">
                 <div class="card-header">
                     <span class="card-title">AI-Augmented Development & 2026 Innovation Path</span>
                     <span class="card-icon"><i class="fa-solid fa-wand-magic-sparkles" style="color: #8b5cf6;"></i></span>
                 </div>
                 
-                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div class="flex-wrap-gap">
                     <!-- Left: AI Stack -->
                     <div style="flex: 2; min-width: 300px;">
                         <h4 style="margin-bottom: 15px; color: #d8b4fe;">🤖 AI-Native Workflow (2+ Years)</h4>
@@ -194,13 +220,13 @@
             </div>
 
             <!-- Global Project Stats & Leadership (NEW) -->
-            <div class="card" style="grid-column: 1 / -1;">
+            <div class="card col-span-full">
                 <div class="card-header">
                     <span class="card-title">Project Leadership & Ecosystem Scale (Since Inception)</span>
                     <span class="card-icon"><i class="fa-solid fa-users-gear"></i></span>
                 </div>
                 <!-- Leadership Banner -->
-                <div style="background: rgba(0, 120, 212, 0.1); border-left: 4px solid #0078d4; padding: 15px; margin-bottom: 20px; border-radius: 0 4px 4px 0;">
+                <div class="stats-header-banner">
                     <div style="display: flex; justify-content: space-between; align-items: start;">
                         <div>
                             <div style="font-weight: bold; color: white; display: flex; align-items: center; gap: 10px; font-size: 1.1rem;">
@@ -364,7 +390,7 @@
             </div>
 
             <!-- Key Initiatives / Logros (Defender Recommendations Style) -->
-            <div class="card" style="grid-column: 1 / -1;" id="compliance">
+            <div class="card col-span-full" id="compliance">
                 <div class="card-header">
                     <span class="card-title">Key Achievements & Impact (Logros)</span>
                     <span class="card-icon"><i class="fa-solid fa-trophy"></i></span>
@@ -447,7 +473,7 @@
             </div>
 
             <!-- Career Roadmap Section -->
-            <div class="card" style="grid-column: 1 / -1;" id="roadmap">
+            <div class="card col-span-full" id="roadmap">
                 <div class="card-header">
                     <span class="card-title">Professional Roadmap (Career History)</span>
                     <span class="card-icon"><i class="fa-solid fa-timeline"></i></span>
@@ -551,7 +577,7 @@
             </div>
 
             <!-- Certifications Section -->
-            <div class="card" style="grid-column: 1 / -1;" id="certifications">
+            <div class="card col-span-full" id="certifications">
                 <div class="card-header">
                     <span class="card-title">Verified Credentials & Certifications</span>
                     <span style="font-size: 0.8rem; color: var(--text-secondary);"><a href="https://www.credly.com/users/jesus-angel-senoran-lopez/badges" target="_blank" style="color:#0078d4; text-decoration:none;">View on Credly <i class="fa-solid fa-external-link-alt"></i></a></span>
@@ -592,29 +618,17 @@
             </div>
 
             <!-- Contact / Profile Link -->
-            <div class="card" id="contact" style="grid-column: 1 / -1;">
+            <div class="card col-span-full" id="contact">
                 <div class="card-header">
                     <span class="card-title">Professional Profile & Contact</span>
                 </div>
-                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
+                <div class="flex-wrap-gap" style="align-items: center;">
                     <!-- LinkedIn -->
                     <a href="https://www.linkedin.com/in/jesusangelsenoran/" target="_blank" style="text-decoration: none;">
                         <button style="background-color: #0077b5; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
                             <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
                         </button>
                     </a>
-                    
-                    <!-- Email Placeholder -->
-                    <a href="mailto:tu-email@ejemplo.com" style="text-decoration: none;">
-                        <button style="background-color: rgba(255,255,255,0.05); color: var(--text-primary); border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 10px;">
-                            <i class="fa-regular fa-envelope"></i> tu-email@ejemplo.com
-                        </button>
-                    </a>
-
-                    <!-- Phone Placeholder -->
-                    <div style="color: var(--text-secondary); display: flex; align-items: center; gap: 10px; font-size: 1rem;">
-                        <i class="fa-solid fa-phone"></i> <span>+34 6XX XX XX XX</span>
-                    </div>
                 </div>
             </div>
 
