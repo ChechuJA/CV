@@ -92,9 +92,102 @@ body {
     border: 1px solid var(--border-color);
     padding: 5px 10px;
     border-radius: 4px;
-    width: 300px;
+    width: 360px;
     color: var(--text-secondary);
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background-color: #252526;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    max-height: 320px;
+    overflow-y: auto;
+    z-index: 1200;
+    display: none;
+}
+
+.search-results.visible {
+    display: block;
+}
+
+.search-result-item {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    color: var(--text-primary);
+    text-align: left;
+    cursor: pointer;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover,
+.search-result-item.active {
+    background-color: rgba(0, 120, 212, 0.18);
+}
+
+.search-result-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.search-result-snippet {
+    margin-top: 4px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.35;
+}
+
+.search-empty {
+    padding: 10px 12px;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+
+.search-result-snippet mark,
+.search-result-title mark {
+    background: rgba(255, 185, 0, 0.25);
+    color: #fff;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+.search-focus-target {
+    animation: searchTargetPulse 1.2s ease;
+}
+
+@keyframes searchTargetPulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.5); }
+    100% { box-shadow: 0 0 0 14px rgba(0, 120, 212, 0); }
 }
 
 .user-profile {
@@ -226,6 +319,18 @@ body {
     }
     .main-content {
         width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .top-bar {
+        flex-wrap: wrap;
+        gap: 8px;
+        height: auto;
+        padding: 10px;
     }
 }
 

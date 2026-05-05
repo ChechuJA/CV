@@ -15,7 +15,7 @@
         </div>
         <ul class="sidebar-menu">
             <li><a href="#overview" class="active"><i class="fa-solid fa-gauge-high"></i> Overview</a></li>
-            <li><a href="#market-value"><i class="fa-solid fa-sack-dollar"></i> Market Value</a></li>
+            <li><a href="#market-value"><i class="fa-solid fa-crosshairs"></i> Profile Fit</a></li>
             <li><a href="#ai-strategy"><i class="fa-solid fa-wand-magic-sparkles"></i> AI & Innovation</a></li>
             <li><a href="#epac-impact"><i class="fa-solid fa-gavel"></i> Governance & Impact</a></li>
             <li><a href="#roadmap"><i class="fa-solid fa-code-branch"></i> Career Roadmap</a></li>
@@ -28,8 +28,10 @@
     <main class="main-content">
         <!-- Top Navigation Bar -->
         <div class="top-bar">
-            <div class="search-bar">
-                <i class="fa-solid fa-search"></i> Search resources, policies, and recommendations...
+            <div class="search-bar" id="global-search-container">
+                <i class="fa-solid fa-search"></i>
+                <input id="global-search-input" type="text" placeholder="Search resources, policies, and recommendations..." aria-label="Search CV content">
+                <div class="search-results" id="global-search-results"></div>
             </div>
             <div class="user-profile">
                 <i class="fa-regular fa-bell"></i>
@@ -65,122 +67,148 @@
                 </div>
             </div>
 
-            <!-- ===== MARKET VALUE & PROFILE FIT (NEW) ===== -->
-            <div class="card col-span-full" id="market-value" style="border-left: 4px solid #ffb900;">
+            <!-- ===== PROFILE FIT ===== -->
+            <div class="card col-span-full" id="market-value" style="border-left: 4px solid #0078d4;">
                 <div class="card-header">
-                    <span class="card-title"><i class="fa-solid fa-sack-dollar" style="color:#ffb900;"></i> &nbsp;Market Value & Profile Fit — ¿Cuánto puedes pedir?</span>
-                    <span style="font-size:0.8rem; color:#888;">Análisis de banda salarial · Madrid · 2025-2026</span>
+                    <span class="card-title"><i class="fa-solid fa-crosshairs" style="color:#0078d4;"></i> &nbsp;Profile Fit — Roles donde este perfil puede destacar</span>
+                    <span style="font-size:0.8rem; color:#888;">Posicionamiento estratégico · Senior Level</span>
                 </div>
 
-                <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; margin-bottom: 22px; border-left: 3px solid #ffb900; padding-left: 14px;">
-                    Con <strong>15+ años de experiencia</strong>, historial en <strong>banca, defensa y consultoría global</strong>, liderazgo de equipos de 23 ingenieros, arquitectura de seguridad cloud de nivel enterprise y un stack de <strong>certificaciones Microsoft, HashiCorp y GitHub</strong>, el perfil de Jesús se alinea con los roles IT mejor remunerados del mercado español. A continuación, los perfiles objetivo y la horquilla salarial que puedes defender.
+                <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; margin-bottom: 24px; border-left: 3px solid #0078d4; padding-left: 14px;">
+                    Un perfil que combina <strong>liderazgo técnico real</strong>, <strong>arquitectura de seguridad cloud de nivel enterprise</strong>, experiencia en sectores regulados como banca y defensa, y formación continua acreditada, encaja de forma natural en posiciones de alto impacto. Estos son los roles donde la trayectoria habla por sí sola.
                 </p>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
 
-                    <!-- Card 1: Technical Lead -->
-                    <div style="background: linear-gradient(135deg, #0f2027 0%, #1a2a3a 100%); border: 1px solid #0078d4; border-radius: 8px; padding: 18px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                            <span style="font-weight:700; font-size:1rem; color:#fff;"><i class="fa-solid fa-crown" style="color:#ffb900;"></i> &nbsp;Technical Lead</span>
-                            <span style="background:#ffb900; color:#1b1b1c; font-weight:800; border-radius:20px; padding:3px 12px; font-size:0.85rem;">88K – 113K €</span>
+                    <!-- Row 1: Technical Lead -->
+                    <div style="display:grid; grid-template-columns: 220px 1fr; gap:0; background:#1e1e1e; border:1px solid #0078d4; border-radius:8px; overflow:hidden;">
+                        <div style="background: linear-gradient(160deg, #0f2027, #1a2a3a); padding:20px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid #0078d4;">
+                            <div style="font-size:1.5rem; margin-bottom:8px;"><i class="fa-solid fa-crown" style="color:#ffb900;"></i></div>
+                            <div style="font-weight:700; font-size:0.95rem; color:#fff; line-height:1.3;">Technical Lead</div>
+                            <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:5px;">
+                                <span style="background:rgba(255,185,0,0.15); color:#ffb900; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Liderazgo</span>
+                                <span style="background:rgba(0,120,212,0.15); color:#0078d4; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Arquitectura</span>
+                            </div>
                         </div>
-                        <p style="color: var(--text-secondary); font-size:0.82rem; line-height:1.6; margin-bottom:12px;">
-                            El rol mejor remunerado entre seniors IT en Madrid: combina liderazgo técnico con gestión de proyectos complejos.
-                        </p>
-                        <div style="border-top:1px solid #2a3a4a; padding-top:10px; font-size:0.8rem; color:#57f257;">
-                            <i class="fa-solid fa-check"></i> &nbsp;<strong>Evidencia:</strong> Lead de 23 ingenieros en Avanade (banca), top contributor con 451 commits, diseñó e implementó desde cero un framework EPAC de gobernanza enterprise multi-tenant.
+                        <div style="padding:18px 22px;">
+                            <p style="color:var(--text-secondary); font-size:0.85rem; line-height:1.7; margin-bottom:12px;">
+                                El Technical Lead es el punto de convergencia entre la estrategia y la ejecución. No solo domina la tecnología: define el camino, toma decisiones bajo presión y es la referencia del equipo cuando algo no cuadra. Es el rol que más exige porque todo pasa por él — la arquitectura, el criterio, la cultura técnica.
+                            </p>
+                            <div style="background:rgba(87,242,87,0.06); border-left:3px solid #57f257; padding:10px 14px; border-radius:0 4px 4px 0; font-size:0.8rem; color:#ccc;">
+                                <span style="color:#57f257; font-weight:700;"><i class="fa-solid fa-fingerprint"></i> &nbsp;Por qué encaja:</span> &nbsp;
+                                Team Lead de 23 ingenieros en entorno bancario de alta exigencia. Top contributor del repositorio (451 commits, 32.2% del total). Diseñó e implementó desde cero el framework de gobernanza EPAC, escalando la cobertura de 8 a más de 200 tipos de recursos.
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Card 2: SRE -->
-                    <div style="background: linear-gradient(135deg, #0f1b0f 0%, #1a2a1a 100%); border: 1px solid #107c10; border-radius: 8px; padding: 18px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                            <span style="font-weight:700; font-size:1rem; color:#fff;"><i class="fa-solid fa-server" style="color:#57f257;"></i> &nbsp;Site Reliability Engineer</span>
-                            <span style="background:#107c10; color:#fff; font-weight:800; border-radius:20px; padding:3px 12px; font-size:0.85rem;">70K – 90K €</span>
+                    <!-- Row 2: SRE -->
+                    <div style="display:grid; grid-template-columns: 220px 1fr; gap:0; background:#1e1e1e; border:1px solid #107c10; border-radius:8px; overflow:hidden;">
+                        <div style="background: linear-gradient(160deg, #0f1b0f, #1a2a1a); padding:20px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid #107c10;">
+                            <div style="font-size:1.5rem; margin-bottom:8px;"><i class="fa-solid fa-server" style="color:#57f257;"></i></div>
+                            <div style="font-weight:700; font-size:0.95rem; color:#fff; line-height:1.3;">Site Reliability Engineer</div>
+                            <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:5px;">
+                                <span style="background:rgba(87,242,87,0.15); color:#57f257; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Fiabilidad</span>
+                                <span style="background:rgba(87,242,87,0.15); color:#57f257; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">DevSecOps</span>
+                            </div>
                         </div>
-                        <p style="color: var(--text-secondary); font-size:0.82rem; line-height:1.6; margin-bottom:12px;">
-                            Alta demanda de profesionales que aseguren la estabilidad y escalabilidad de sistemas tecnológicos críticos.
-                        </p>
-                        <div style="border-top:1px solid #1a3a1a; padding-top:10px; font-size:0.8rem; color:#57f257;">
-                            <i class="fa-solid fa-check"></i> &nbsp;<strong>Evidencia:</strong> Arquitectura cloud enterprise con 120+ releases, 11 pipelines CI/CD, DevSecOps en sector bancario con políticas de deny sobre +200 tipos de recursos. Disaster Recovery con Veeam/Azure en 50+ clientes.
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Compliance Officer -->
-                    <div style="background: linear-gradient(135deg, #1a0f2a 0%, #2a1a3a 100%); border: 1px solid #8b5cf6; border-radius: 8px; padding: 18px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                            <span style="font-weight:700; font-size:1rem; color:#fff;"><i class="fa-solid fa-gavel" style="color:#8b5cf6;"></i> &nbsp;Compliance Officer</span>
-                            <span style="background:#8b5cf6; color:#fff; font-weight:800; border-radius:20px; padding:3px 12px; font-size:0.85rem;">60K – 100K €</span>
-                        </div>
-                        <p style="color: var(--text-secondary); font-size:0.82rem; line-height:1.6; margin-bottom:12px;">
-                            Garantizar que la empresa cumple la normativa, prevenir riesgos legales y reforzar la gobernanza corporativa.
-                        </p>
-                        <div style="border-top:1px solid #2a1a3a; padding-top:10px; font-size:0.8rem; color:#57f257;">
-                            <i class="fa-solid fa-check"></i> &nbsp;<strong>Evidencia:</strong> Arquitecto del framework de gobernanza EPAC en entorno bancario regulado: 147 custom policies, estrategia Audit-to-Deny, cobertura de +200 recursos, controles de red, IA y datos.
+                        <div style="padding:18px 22px;">
+                            <p style="color:var(--text-secondary); font-size:0.85rem; line-height:1.7; margin-bottom:12px;">
+                                El SRE vive en la intersección entre el desarrollo y las operaciones, con una obsesión: que el sistema no falle. Diseña para la resiliencia, automatiza para eliminar el error humano y mide todo lo que importa. En entornos críticos, es la figura que separa el caos del control.
+                            </p>
+                            <div style="background:rgba(87,242,87,0.06); border-left:3px solid #57f257; padding:10px 14px; border-radius:0 4px 4px 0; font-size:0.8rem; color:#ccc;">
+                                <span style="color:#57f257; font-weight:700;"><i class="fa-solid fa-fingerprint"></i> &nbsp;Por qué encaja:</span> &nbsp;
+                                11 pipelines CI/CD activos, 120+ releases gestionados, aceleración de entrega del 69% en 2025. Estrategia de seguridad Audit-to-Deny aplicada sobre +200 tipos de recursos en producción bancaria. Historial previo de Disaster Recovery en 50+ clientes.
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Card 4: Auditor -->
-                    <div style="background: linear-gradient(135deg, #1a0f0f 0%, #2a1a1a 100%); border: 1px solid #d13438; border-radius: 8px; padding: 18px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                            <span style="font-weight:700; font-size:1rem; color:#fff;"><i class="fa-solid fa-magnifying-glass-chart" style="color:#d13438;"></i> &nbsp;Auditor (Banca / Seguros)</span>
-                            <span style="background:#d13438; color:#fff; font-weight:800; border-radius:20px; padding:3px 12px; font-size:0.85rem;">60K – 99K €</span>
+                    <!-- Row 3: Compliance Officer -->
+                    <div style="display:grid; grid-template-columns: 220px 1fr; gap:0; background:#1e1e1e; border:1px solid #8b5cf6; border-radius:8px; overflow:hidden;">
+                        <div style="background: linear-gradient(160deg, #1a0f2a, #2a1a3a); padding:20px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid #8b5cf6;">
+                            <div style="font-size:1.5rem; margin-bottom:8px;"><i class="fa-solid fa-gavel" style="color:#8b5cf6;"></i></div>
+                            <div style="font-weight:700; font-size:0.95rem; color:#fff; line-height:1.3;">Compliance Officer</div>
+                            <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:5px;">
+                                <span style="background:rgba(139,92,246,0.15); color:#8b5cf6; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Gobernanza</span>
+                                <span style="background:rgba(139,92,246,0.15); color:#8b5cf6; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Normativa</span>
+                            </div>
                         </div>
-                        <p style="color: var(--text-secondary); font-size:0.82rem; line-height:1.6; margin-bottom:12px;">
-                            Asegurar la transparencia y la correcta aplicación de controles internos en entornos altamente regulados.
-                        </p>
-                        <div style="border-top:1px solid #3a1a1a; padding-top:10px; font-size:0.8rem; color:#57f257;">
-                            <i class="fa-solid fa-check"></i> &nbsp;<strong>Evidencia:</strong> Seguridad y auditoría en GMV Aerospace & Defence (CheckPoint, DLP), controles internos cloud en banca con Avanade, 450 políticas de referencia aplicadas. Secure Score del 98%.
-                        </div>
-                    </div>
-
-                    <!-- Card 5: Consultor -->
-                    <div style="background: linear-gradient(135deg, #0f1a1a 0%, #1a2a2a 100%); border: 1px solid #0078d4; border-radius: 8px; padding: 18px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                            <span style="font-weight:700; font-size:1rem; color:#fff;"><i class="fa-solid fa-briefcase" style="color:#0078d4;"></i> &nbsp;Consultor Estratégico</span>
-                            <span style="background:#0078d4; color:#fff; font-weight:800; border-radius:20px; padding:3px 12px; font-size:0.85rem;">60K – 99K €</span>
-                        </div>
-                        <p style="color: var(--text-secondary); font-size:0.82rem; line-height:1.6; margin-bottom:12px;">
-                            Aportar valor estratégico mediante análisis, planes de mejora y acompañamiento en transformación empresarial.
-                        </p>
-                        <div style="border-top:1px solid #1a2a2a; padding-top:10px; font-size:0.8rem; color:#57f257;">
-                            <i class="fa-solid fa-check"></i> &nbsp;<strong>Evidencia:</strong> Consultor en Avanade y DXC Technology (Big 4 IT), definición de requisitos globales con clientes, ponente en Global Azure 2024, PowerMBA, y voluntariado en Junior Achievement España.
+                        <div style="padding:18px 22px;">
+                            <p style="color:var(--text-secondary); font-size:0.85rem; line-height:1.7; margin-bottom:12px;">
+                                El Compliance Officer es el guardián del orden en organizaciones donde un error normativo puede tener consecuencias reales. Traduce el marco regulatorio en controles concretos, hace que la gobernanza sea operable y convierte la auditoría en algo que el negocio entiende — y respeta.
+                            </p>
+                            <div style="background:rgba(87,242,87,0.06); border-left:3px solid #57f257; padding:10px 14px; border-radius:0 4px 4px 0; font-size:0.8rem; color:#ccc;">
+                                <span style="color:#57f257; font-weight:700;"><i class="fa-solid fa-fingerprint"></i> &nbsp;Por qué encaja:</span> &nbsp;
+                                Arquitecto del framework EPAC en un banco: 147 políticas custom, 450 asignaciones de referencia, cobertura de gobernanza sobre red, datos, identidad, IA y cómputo. Secure Score del 98%. Experiencia directa en entornos regulados con requerimientos de cumplimiento estricto.
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Card 6: Jefe de Proyecto -->
-                    <div style="background: linear-gradient(135deg, #1a1a0f 0%, #2a2a1a 100%); border: 1px solid #ffb900; border-radius: 8px; padding: 18px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                            <span style="font-weight:700; font-size:1rem; color:#fff;"><i class="fa-solid fa-diagram-project" style="color:#ffb900;"></i> &nbsp;Jefe de Proyecto IT</span>
-                            <span style="background:#c08000; color:#fff; font-weight:800; border-radius:20px; padding:3px 12px; font-size:0.85rem;">56K – 92K €</span>
+                    <!-- Row 4: Auditor -->
+                    <div style="display:grid; grid-template-columns: 220px 1fr; gap:0; background:#1e1e1e; border:1px solid #d13438; border-radius:8px; overflow:hidden;">
+                        <div style="background: linear-gradient(160deg, #1a0f0f, #2a1a1a); padding:20px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid #d13438;">
+                            <div style="font-size:1.5rem; margin-bottom:8px;"><i class="fa-solid fa-magnifying-glass-chart" style="color:#d13438;"></i></div>
+                            <div style="font-weight:700; font-size:0.95rem; color:#fff; line-height:1.3;">Auditor IT · Sectores Regulados</div>
+                            <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:5px;">
+                                <span style="background:rgba(209,52,56,0.15); color:#d13438; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Control Interno</span>
+                                <span style="background:rgba(209,52,56,0.15); color:#d13438; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Seguridad</span>
+                            </div>
                         </div>
-                        <p style="color: var(--text-secondary); font-size:0.82rem; line-height:1.6; margin-bottom:12px;">
-                            Coordinar equipos multidisciplinares, gestionar recursos y asegurar el cumplimiento de plazos y objetivos.
-                        </p>
-                        <div style="border-top:1px solid #2a2a1a; padding-top:10px; font-size:0.8rem; color:#57f257;">
-                            <i class="fa-solid fa-check"></i> &nbsp;<strong>Evidencia:</strong> Coordinador de Proyectos TI nacional en SERMICRO (50+ clientes), gestión de equipo de 23 ingenieros en Avanade, 69% de aceleración en entrega, 120+ releases gestionados.
+                        <div style="padding:18px 22px;">
+                            <p style="color:var(--text-secondary); font-size:0.85rem; line-height:1.7; margin-bottom:12px;">
+                                El auditor IT en sectores como banca o defensa no solo revisa — detecta brechas antes de que alguien las explote, valida que los controles funcionan de verdad y construye la evidencia que el regulador necesita ver. Requiere combinar visión técnica profunda con capacidad de comunicar riesgo al negocio.
+                            </p>
+                            <div style="background:rgba(87,242,87,0.06); border-left:3px solid #57f257; padding:10px 14px; border-radius:0 4px 4px 0; font-size:0.8rem; color:#ccc;">
+                                <span style="color:#57f257; font-weight:700;"><i class="fa-solid fa-fingerprint"></i> &nbsp;Por qué encaja:</span> &nbsp;
+                                Análisis de seguridad y prevención de fugas de datos en GMV Aerospace & Defence (CheckPoint Firewalls, DLP). Controles cloud de nivel enterprise en banca con Avanade. 450 políticas de referencia aplicadas y auditadas. Secure Score del 98% sostenido.
+                            </div>
                         </div>
                     </div>
 
-                </div>
+                    <!-- Row 5: Consultor -->
+                    <div style="display:grid; grid-template-columns: 220px 1fr; gap:0; background:#1e1e1e; border:1px solid #00b7c3; border-radius:8px; overflow:hidden;">
+                        <div style="background: linear-gradient(160deg, #0f1a1a, #1a2a2a); padding:20px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid #00b7c3;">
+                            <div style="font-size:1.5rem; margin-bottom:8px;"><i class="fa-solid fa-briefcase" style="color:#00b7c3;"></i></div>
+                            <div style="font-weight:700; font-size:0.95rem; color:#fff; line-height:1.3;">Consultor Cloud & Security</div>
+                            <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:5px;">
+                                <span style="background:rgba(0,183,195,0.15); color:#00b7c3; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Estrategia</span>
+                                <span style="background:rgba(0,183,195,0.15); color:#00b7c3; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Transformación</span>
+                            </div>
+                        </div>
+                        <div style="padding:18px 22px;">
+                            <p style="color:var(--text-secondary); font-size:0.85rem; line-height:1.7; margin-bottom:12px;">
+                                El consultor de alto nivel no ejecuta por ejecutar — entra, entiende el problema real detrás del problema declarado, y diseña la solución que la organización no sabía que necesitaba. Combina visión estratégica con capacidad de implantación, y se mide por el impacto que deja después de salir del proyecto.
+                            </p>
+                            <div style="background:rgba(87,242,87,0.06); border-left:3px solid #57f257; padding:10px 14px; border-radius:0 4px 4px 0; font-size:0.8rem; color:#ccc;">
+                                <span style="color:#57f257; font-weight:700;"><i class="fa-solid fa-fingerprint"></i> &nbsp;Por qué encaja:</span> &nbsp;
+                                Perfil consultor en Avanade y DXC Technology, dos de las mayores firmas IT globales. Definición de arquitecturas y requisitos de seguridad directamente con clientes de banca multinacional. Ponente en Global Azure 2024. PowerMBA. Voluntario en Junior Achievement España.
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Bottom Banner -->
-                <div style="margin-top: 22px; background: rgba(255,185,0,0.08); border: 1px dashed #ffb900; border-radius: 8px; padding: 16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-                    <div style="color: var(--text-secondary); font-size:0.88rem; line-height:1.6;">
-                        <i class="fa-solid fa-chart-line" style="color:#ffb900;"></i> &nbsp;
-                        <strong style="color:white;">Rango salarial objetivo recomendado:</strong> &nbsp;
-                        Con el perfil completo (liderazgo + seguridad + compliance + consultoría), la banda defensible para una negociación senior en Madrid se sitúa en
-                        <strong style="color:#ffb900; font-size:1.05rem;">85.000 – 110.000 € brutos/año</strong>, con capacidad de escalar hacia 113K en posiciones de Technical Lead o Head of Cloud Security.
+                    <!-- Row 6: Jefe de Proyecto -->
+                    <div style="display:grid; grid-template-columns: 220px 1fr; gap:0; background:#1e1e1e; border:1px solid #ffb900; border-radius:8px; overflow:hidden;">
+                        <div style="background: linear-gradient(160deg, #1a1a0f, #2a2a1a); padding:20px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid #ffb900;">
+                            <div style="font-size:1.5rem; margin-bottom:8px;"><i class="fa-solid fa-diagram-project" style="color:#ffb900;"></i></div>
+                            <div style="font-weight:700; font-size:0.95rem; color:#fff; line-height:1.3;">Project Manager IT</div>
+                            <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:5px;">
+                                <span style="background:rgba(255,185,0,0.15); color:#ffb900; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Gestión</span>
+                                <span style="background:rgba(255,185,0,0.15); color:#ffb900; border-radius:4px; padding:2px 8px; font-size:0.72rem; font-weight:600;">Entrega</span>
+                            </div>
+                        </div>
+                        <div style="padding:18px 22px;">
+                            <p style="color:var(--text-secondary); font-size:0.85rem; line-height:1.7; margin-bottom:12px;">
+                                El Project Manager IT en ingeniería convierte la complejidad en un plan ejecutable. Coordina perfiles muy distintos, negocia con stakeholders, gestiona riesgos antes de que se conviertan en incidentes y asegura que lo que se entrega coincida con lo que se prometió — en tiempo, forma y calidad.
+                            </p>
+                            <div style="background:rgba(87,242,87,0.06); border-left:3px solid #57f257; padding:10px 14px; border-radius:0 4px 4px 0; font-size:0.8rem; color:#ccc;">
+                                <span style="color:#57f257; font-weight:700;"><i class="fa-solid fa-fingerprint"></i> &nbsp;Por qué encaja:</span> &nbsp;
+                                Coordinador de Proyectos TI nacional en SERMICRO con 50+ clientes simultáneos. Gestión de un equipo de 23 ingenieros en Avanade, logrando una aceleración de entrega del 69% en 2025. 120+ releases gestionados hasta la versión 2.56 del producto cloud.
+                            </div>
+                        </div>
                     </div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag tag-accent"><i class="fa-solid fa-shield-halved"></i> Security Architect</span>
-                        <span class="tag"><i class="fa-solid fa-users-gear"></i> People Lead</span>
-                        <span class="tag"><i class="fa-solid fa-gavel"></i> Governance Expert</span>
-                        <span class="tag"><i class="fa-solid fa-certificate"></i> 7 Certs</span>
-                    </div>
+
                 </div>
             </div>
-            <!-- ===== END MARKET VALUE ===== -->
+            <!-- ===== END PROFILE FIT ===== -->
 
             <!-- Security Score (KPI) -->
             <div class="card flex-between-center">
@@ -546,6 +574,7 @@
                                     Certificación oficial GitHub Copilot (GH-300) aprobada el 26 de febrero de 2026.<br>
                                     3 años de experiencia con GitHub Copilot Enterprise, Visual Studio Code y Copilot Chat.<br>
                                     Uso avanzado de agentes, workspaces y custom instructions para maximizar productividad y calidad en proyectos empresariales.
+                                    <br><a href="https://learn.microsoft.com/es-es/users/jesus-angel-senoran/credentials/6b2067ce0266e6b9?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" style="color: #57f257; text-decoration: none; font-size: 0.85rem; margin-top: 5px; display: inline-block;"><i class="fa-solid fa-external-link-alt"></i> Ver credencial oficial GH-300</a>
                                 </td>
                             </tr>
                             <!-- Item 1: Global Azure Speaker 2024 -->
@@ -730,6 +759,11 @@
                     <div class="cert-badge">
                         <i class="fa-solid fa-brain fa-3x" style="color: #8b5cf6; margin-bottom: 10px;"></i>
                         <div class="cert-name">Microsoft Certified:<br><strong>Azure AI Fundamentals</strong> (AI-900)<br><span style="font-size:0.8rem; color:#888;">Aprobado 24 jun 2024</span></div>
+                    </div>
+                    <div class="cert-badge">
+                        <i class="fa-brands fa-github fa-3x" style="color: #ffffff; margin-bottom: 10px;"></i>
+                        <div class="cert-name">GitHub Certified:<br><strong>GitHub Copilot</strong> (GH-300)<br><span style="font-size:0.8rem; color:#888;">Aprobado 26 feb 2026</span><br>
+                        <a href="https://learn.microsoft.com/es-es/users/jesus-angel-senoran/credentials/6b2067ce0266e6b9?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" style="color: #57f257; text-decoration: none; font-size: 0.75rem; margin-top: 5px; display: inline-block;"><i class="fa-solid fa-external-link-alt"></i> Verificar Credencial</a></div>
                     </div>
                     <div class="cert-badge">
                         <i class="fa-brands fa-microsoft fa-3x" style="color: #0078d4; margin-bottom: 10px;"></i>
